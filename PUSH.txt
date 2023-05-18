@@ -1,0 +1,54 @@
+activity_main
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGNUP"
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="671dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/imag"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="183dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGNIN"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="667dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+MainActivity.java
+package com.example.mediapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+
+    public void open_signup(View v) {
+        Intent i= new Intent(MainActivity.this, SignUpActivity.class);
+
+        startActivity(i);
+    }
+    public void open_signIn(View v) {
+        Intent i = new Intent(MainActivity.this, SignInActivity.class);
+
+        startActivity(i);
+    }
+}
