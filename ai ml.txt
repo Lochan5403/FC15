@@ -1,0 +1,52 @@
+import pandas as pd
+import seaborn as sns
+import numpy as np
+
+from google.colab import files
+ 
+ 
+uploaded = files.upload()
+
+
+import pandas as pd
+import io
+ 
+df = pd.read_csv(io.BytesIO(uploaded['traffic.csv']))
+print(df)
+
+
+df.head()
+
+df.tail()
+
+df.columns
+
+df.shape
+
+df.describe()
+
+df.isnull().sum()
+
+import matplotlib.pyplot as plt
+
+#sns.relplot(x='vehicles',y='junction',df=df)
+
+df.head()
+
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+train = df.drop(['ID','DateTime'],axis=1)
+test=df['ID']
+
+X_train,X_test,y_train,y_test = train_test_split(train,test,test_size=0.3,random_state=2)
+
+regr = LinearRegression()
+
+regr.fit(X_train,y_train)
+
+pred = regr.predict(X_test)
+
+pred
+
+regr.score(X_test,y_test)
